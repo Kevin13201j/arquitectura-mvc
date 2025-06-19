@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Frontend MVC</title>
 </head>
 <body>
-  <h1>Frontend MVC</h1>
-  <button onclick="obtenerSaludo()">Obtener saludo</button>
-  <pre id="salida"></pre>
+  <h2>Vista MVC</h2>
+  <button onclick="llamarBackend()">Obtener saludo</button>
+  <p id="respuesta"></p>
 
   <script>
-    async function obtenerSaludo() {
-      const res = await fetch('http://localhost:3000/saludo');
+    async function llamarBackend() {
+      const res = await fetch("http://localhost:3000/saludo");
       const data = await res.json();
-      document.getElementById('salida').textContent = JSON.stringify(data, null, 2);
+      document.getElementById("respuesta").innerText = data.mensaje;
     }
   </script>
 </body>

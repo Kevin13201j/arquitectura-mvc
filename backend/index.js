@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 // Controlador
 const controller = {
@@ -9,9 +12,9 @@ const controller = {
   }
 };
 
-// Vista (en este caso JSON simple)
 app.get('/saludo', controller.hola);
 
 app.listen(port, () => {
   console.log(`Servidor MVC corriendo en http://localhost:${port}`);
 });
+
